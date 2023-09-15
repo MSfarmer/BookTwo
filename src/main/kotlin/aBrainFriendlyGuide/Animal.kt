@@ -1,6 +1,11 @@
 package aBrainFriendlyGuide
 
-abstract class Animal {
+
+interface Roamable {
+    fun roam()
+}
+
+abstract class Animal : Roamable {
     abstract val image: String
     abstract val food: String
     abstract val habitat: String
@@ -9,7 +14,7 @@ abstract class Animal {
     abstract fun makeNoise()
 
     abstract fun eat()
-    open fun roam(){
+    override fun roam(){
         println("The Animal is roaming")
     }
 
@@ -53,6 +58,13 @@ class Wolf : Canine(){
     }
 
 }
+
+class Vehicle : Roamable{
+    override fun roam() {
+        print("The Vehicle is roaming")
+    }
+}
+
 
 class Vet {
     fun giveShot(animal:Animal){
